@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Smart Health Predictor</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+/* NAVBAR (Same as Home Page) */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:24px;
+    font-weight:700;
+    color:#2b7cff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    color:#2b7cff;
+}
+
+/* LOGIN BOX */
+.login-wrapper{
+    width:420px;
+    background:white;
+    margin:100px auto;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.login-wrapper h2{
+    color:#2b7cff;
+    margin-bottom:15px;
+}
+
+.login-wrapper p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.login-wrapper input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+.login-wrapper button{
+    width:100%;
+    padding:12px;
+    background:#2b7cff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-wrapper button:hover{
+    background:#1a5edb;
+}
+
+.bottom-text{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.bottom-text a{
+    color:#2b7cff;
+    text-decoration:none;
+}
+
+.bottom-text a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR WITH SAME HEART LOGO -->
+<nav>
+<div class="logo">
+    <svg width="45" height="45" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="gradLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2b7cff"/>
+                <stop offset="100%" style="stop-color:#00c6ff"/>
+            </linearGradient>
+        </defs>
+
+        <path d="M32 58s-22-13.5-22-30A13 13 0 0 1 32 18a13 13 0 0 1 22 10c0 16.5-22 30-22 30z" 
+              fill="url(#gradLogo)" stroke="#1a5edb" stroke-width="2"/>
+
+        <polyline points="14,34 22,34 26,28 30,40 34,24 38,34 50,34"
+                  fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+    </svg>
+
+    <span>Smart Health Predictor</span>
+</div>
+
+<ul>
+
+</ul>
+</nav>
+
+<!-- LOGIN FORM -->
+<div class="login-wrapper">
+    <h2>User Login</h2>
+    <p>Please login to continue</p>
+
+   <form action="login" method="post">
+    <input type="text" name="username" placeholder="Enter Username" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <button type="submit">Login</button>
+</form>
+    <div class="bottom-text">
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+        <p><a href="forgot.html">Forgot Password?</a></p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
