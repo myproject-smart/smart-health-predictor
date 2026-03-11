@@ -19,8 +19,8 @@ public class DBconnection {
             System.out.println("Port: " + port);
             System.out.println("DB: " + database);
 
-            String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&serverTimezone=UTC";
-
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + database +
+            		"?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection(url, username, password);
