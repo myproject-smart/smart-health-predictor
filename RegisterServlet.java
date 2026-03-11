@@ -22,7 +22,11 @@ public class RegisterServlet extends HttpServlet {
         try {
 
             Connection con = DBconnection.getConnection();
+            
 
+            if(con != null){
+                System.out.println("DATABASE CONNECTED SUCCESSFULLY");
+            }
             String sql = "INSERT INTO users(username,email,password) VALUES(?,?,?)";
             PreparedStatement stmt = con.prepareStatement(sql);
 
