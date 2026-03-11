@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
             stmt.setString(3, password);
 
             int rows = stmt.executeUpdate();
-            System.out.println("Rows inserted: " + rows);
+            System.out.println("Rows inserted = " + rows);
 
             stmt.close();
             con.close();
