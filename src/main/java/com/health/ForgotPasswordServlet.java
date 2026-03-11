@@ -1,5 +1,6 @@
 package com.health;
 
+import com.health.DBconnection;
 import java.io.IOException;
 import java.sql.*;
 import jakarta.servlet.ServletException;
@@ -8,10 +9,7 @@ import jakarta.servlet.http.*;
 
 @WebServlet("/forgotpassword")
 public class ForgotPasswordServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    private String jdbcURL = "jdbc:mysql://localhost:3306/healthdb?useSSL=false&serverTimezone=UTC";
-    private String dbUser = "root";        // MySQL username
-    private String dbPass = "abW_67@jagriti"; // MySQL password
+    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -21,11 +19,12 @@ public class ForgotPasswordServlet extends HttpServlet {
         String newPassword = request.getParameter("newpassword");
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPass);
+
+            Connection conn = DBconnection.getConnection();
 
             String sql = "UPDATE users SET password=? WHERE username=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
+
             stmt.setString(1, newPassword);
             stmt.setString(2, username);
 
@@ -34,14 +33,15 @@ public class ForgotPasswordServlet extends HttpServlet {
             stmt.close();
             conn.close();
 
-            if(rows > 0){
-                response.getWriter().println("<script>alert('Password Reset Successful!'); window.location='login.html';</script>");
+            if (rows > 0) {
+                response.sendRedirect("login.html");
             } else {
-                response.getWriter().println("<script>alert('Username not found!'); window.location='forgot.html';</script>");
+                response.sendRedirect("forgot.html");
             }
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+            response.sendRedirect("forgot.html");
         }
     }
 }

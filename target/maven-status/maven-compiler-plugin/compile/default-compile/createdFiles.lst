@@ -1,0 +1,5 @@
+com\health\LoginServlet.class
+com\health\LogoutServlet.class
+com\health\PredictServlet.class
+com\health\RegisterServlet.class
+com\health\ForgotPasswordServlet.class

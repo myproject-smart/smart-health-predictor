@@ -1,5 +1,6 @@
 package com.health;
 
+import com.health.DBconnection;
 import java.io.IOException;
 import java.sql.*;
 import jakarta.servlet.ServletException;
@@ -8,10 +9,7 @@ import jakarta.servlet.http.*;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    private String jdbcURL = "jdbc:mysql://localhost:3306/healthdb?useSSL=false&serverTimezone=UTC";
-    private String dbUser = "root";        // MySQL username
-    private String dbPass = "abW_67@jagriti"; // MySQL password
+    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -23,33 +21,37 @@ public class LoginServlet extends HttpServlet {
         boolean validUser = false;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPass);
+
+            Connection con = DBconnection.getConnection();
 
             String sql = "SELECT * FROM users WHERE username=? AND password=?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
+
             stmt.setString(1, username);
             stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
+
+            if (rs.next()) {
                 validUser = true;
             }
 
             rs.close();
             stmt.close();
-            conn.close();
+            con.close();
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+            response.sendRedirect("login.html");
+            return;
         }
 
-        if(validUser){
+        if (validUser) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             response.sendRedirect("home.jsp");
         } else {
-            response.getWriter().println("<script>alert('Invalid Username or Password'); window.location='login.html';</script>");
+            response.sendRedirect("login.html");
         }
     }
 }
