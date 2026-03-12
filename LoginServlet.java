@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
 
-            Connection con = DBconnection.getConnection();
+            Connection con = DBConnection.getConnection();
 
             String sql = "SELECT * FROM users WHERE username=? AND password=?";
             PreparedStatement stmt = con.prepareStatement(sql);

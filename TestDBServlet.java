@@ -15,7 +15,7 @@ public class TestDBServlet extends HttpServlet {
         response.setContentType("text/html");
 
         try {
-            Connection con = DBconnection.getConnection();
+            Connection con = DBConnection.getConnection();
 
             if(con != null){
                 response.getWriter().println("<h2>Database Connected Successfully ✅</h2>");

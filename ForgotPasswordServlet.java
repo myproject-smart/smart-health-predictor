@@ -1,6 +1,6 @@
 package com.health;
 
-import com.health.DBconnection;
+import com.health.DBConnection;
 import java.io.IOException;
 import java.sql.*;
 import jakarta.servlet.ServletException;
@@ -20,7 +20,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 
         try {
 
-            Connection conn = DBconnection.getConnection();
+            Connection conn = DBConnection.getConnection();
 
             String sql = "UPDATE users SET password=? WHERE username=?";
             PreparedStatement stmt = conn.prepareStatement(sql);

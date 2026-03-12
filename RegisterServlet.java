@@ -1,6 +1,6 @@
 package com.health;
 
-import com.health.DBconnection;
+import com.health.DBConnection;
 import java.io.IOException;
 import java.sql.*;
 import jakarta.servlet.ServletException;
@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
 
         try {
 
-            Connection con = DBconnection.getConnection();
+            Connection con = DBConnection.getConnection();
             if(con == null){
             response.getWriter().println("Database connection failed");
             return;
