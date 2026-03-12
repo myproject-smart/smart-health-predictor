@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register | Smart Health Predictor</title>
+<title>About | Smart Health Predictor</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -55,54 +55,33 @@ nav ul li a:hover{
     color:#2b7cff;
 }
 
-/* AUTH BOX */
-.auth-box{
-    width:420px;
+/* ABOUT SECTION */
+.about-container{
+    width:800px;
+    margin:80px auto;
     background:white;
-    margin:100px auto;
-    padding:40px;
+    padding:50px;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.about-container h2{
     text-align:center;
+    margin-bottom:25px;
+    color:#2b7cff;
+    font-size:32px;
 }
 
-.auth-box h2{
-    color:#2b7cff;
+.about-container p{
+    color:#555;
+    line-height:1.8;
     margin-bottom:20px;
-}
-
-.auth-box input{
-    width:100%;
-    padding:12px;
-    margin:12px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-.auth-box button{
-    width:100%;
-    padding:12px;
-    background:#2b7cff;
-    color:white;
-    border:none;
-    border-radius:8px;
     font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
 }
 
-.auth-box button:hover{
-    background:#1a5edb;
-}
-
-.auth-box a{
+.highlight{
     color:#2b7cff;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.auth-box a:hover{
-    text-decoration:underline;
+    font-weight:600;
 }
 </style>
 </head>
@@ -114,14 +93,14 @@ nav ul li a:hover{
 <div class="logo">
     <svg width="45" height="45" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
-            <linearGradient id="gradLogo3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="gradLogoAbout" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style="stop-color:#2b7cff"/>
                 <stop offset="100%" style="stop-color:#00c6ff"/>
             </linearGradient>
         </defs>
 
         <path d="M32 58s-22-13.5-22-30A13 13 0 0 1 32 18a13 13 0 0 1 22 10c0 16.5-22 30-22 30z" 
-              fill="url(#gradLogo3)" stroke="#1a5edb" stroke-width="2"/>
+              fill="url(#gradLogoAbout)" stroke="#1a5edb" stroke-width="2"/>
 
         <polyline points="14,34 22,34 26,28 30,40 34,24 38,34 50,34"
                   fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
@@ -131,39 +110,46 @@ nav ul li a:hover{
 </div>
 
 <ul>
-<li><a href="login.html">Login</a></li>
+<li><a href="home.jsp">Home</a></li>
+<li><a href="predict.jsp">Predict</a></li>
+<li><a href="about.html">About</a></li>
 </ul>
 </nav>
 
-<!-- REGISTER FORM -->
-<div class="auth-box">
-    <h2>Create Account</h2>
+<!-- ABOUT CONTENT -->
+<div class="about-container">
+    <h2>About Smart Health Predictor System</h2>
 
-   <form action="register" method="post">
-    <input type="text" name="username" placeholder="Enter Username" required>
-    <input type="email" name="email" placeholder="Enter Email" required>
-    <input type="password" name="password" placeholder="Create Password" required>
-    <button type="submit">Register</button>
-</form>
+    <p>
+        The <span class="highlight">Smart Health Predictor System</span> is a web-based application 
+        designed to help users monitor their health using intelligent analysis techniques.
+    </p>
 
-    <p style="margin-top:15px;">
-        <a href="login.html">Back to Login</a>
+    <p>
+        This system calculates <span class="highlight">Body Mass Index (BMI)</span> and provides 
+        health suggestions based on user inputs such as height, weight, and other health parameters.
+    </p>
+
+    <p>
+        The goal of this project is to create a simple, user-friendly platform that allows 
+        individuals to understand their health condition and take preventive measures early.
+    </p>
+
+    <p>
+        This project is developed using:
+        <br><br>
+        • HTML & CSS for Frontend Design  
+        <br>
+        • Java for Backend Logic  
+        <br>
+        • SQL for Database Management  
+    </p>
+
+    <p>
+        The Smart Health Predictor System aims to combine technology and healthcare 
+        to provide better awareness and early prediction support.
     </p>
 </div>
-
-<script>
-function registerUser(){
-    let username = document.getElementById("newUser").value;
-    let password = document.getElementById("newPass").value;
-
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-
-    alert("Registration Successful! Please Login.");
-    window.location.href="login.html";
-    return false;
-}
-</script>
 
 </body>
 </html>

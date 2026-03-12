@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register | Smart Health Predictor</title>
+<title>Forgot Password | Smart Health Predictor</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@ body{
     background:#f5f7fb;
 }
 
-/* NAVBAR */
+/* NAVBAR SAME AS HOME */
 nav{
     display:flex;
     justify-content:space-between;
@@ -114,14 +114,14 @@ nav ul li a:hover{
 <div class="logo">
     <svg width="45" height="45" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
-            <linearGradient id="gradLogo3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="gradLogo2" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style="stop-color:#2b7cff"/>
                 <stop offset="100%" style="stop-color:#00c6ff"/>
             </linearGradient>
         </defs>
 
         <path d="M32 58s-22-13.5-22-30A13 13 0 0 1 32 18a13 13 0 0 1 22 10c0 16.5-22 30-22 30z" 
-              fill="url(#gradLogo3)" stroke="#1a5edb" stroke-width="2"/>
+              fill="url(#gradLogo2)" stroke="#1a5edb" stroke-width="2"/>
 
         <polyline points="14,34 22,34 26,28 30,40 34,24 38,34 50,34"
                   fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
@@ -131,20 +131,21 @@ nav ul li a:hover{
 </div>
 
 <ul>
+<li><a href="home.jsp">Home</a></li>
+<li><a href="predict.jsp">Predict</a></li>
 <li><a href="login.html">Login</a></li>
 </ul>
 </nav>
 
-<!-- REGISTER FORM -->
+<!-- RESET PASSWORD BOX -->
 <div class="auth-box">
-    <h2>Create Account</h2>
+    <h2>Reset Password</h2>
 
-   <form action="register" method="post">
-    <input type="text" name="username" placeholder="Enter Username" required>
-    <input type="email" name="email" placeholder="Enter Email" required>
-    <input type="password" name="password" placeholder="Create Password" required>
-    <button type="submit">Register</button>
-</form>
+    <form onsubmit="return resetPassword()">
+        <input type="text" id="userCheck" placeholder="Enter Username" required>
+        <input type="password" id="newPassword" placeholder="Enter New Password" required>
+        <button type="submit">Reset Password</button>
+    </form>
 
     <p style="margin-top:15px;">
         <a href="login.html">Back to Login</a>
@@ -152,14 +153,12 @@ nav ul li a:hover{
 </div>
 
 <script>
-function registerUser(){
-    let username = document.getElementById("newUser").value;
-    let password = document.getElementById("newPass").value;
+function resetPassword(){
+    let newPassword = document.getElementById("newPassword").value;
 
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
+    localStorage.setItem("password", newPassword);
 
-    alert("Registration Successful! Please Login.");
+    alert("Password Reset Successful!");
     window.location.href="login.html";
     return false;
 }

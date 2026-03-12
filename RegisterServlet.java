@@ -22,10 +22,9 @@ public class RegisterServlet extends HttpServlet {
         try {
 
             Connection con = DBconnection.getConnection();
-            
-
-            if(con != null){
-                System.out.println("DATABASE CONNECTED SUCCESSFULLY");
+            if(con == null){
+            response.getWriter().println("Database connection failed");
+            return;
             }
             String sql = "INSERT INTO users(username,email,password) VALUES(?,?,?)";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -41,8 +40,13 @@ public class RegisterServlet extends HttpServlet {
             con.close();
 
             if (rows > 0) {
-                response.sendRedirect("login.html");
-            } else {
+
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+
+                response.sendRedirect("home.jsp");
+            }
+            else{
                 response.sendRedirect("register.html");
             }
 
@@ -50,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
             response.getWriter().println("<script>alert('Username already exists!'); window.location='register.html';</script>");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("register.html");
+            response.getWriter().println("Registration Error: " + e.getMessage());
         }
     }
 }
