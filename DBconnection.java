@@ -17,14 +17,7 @@ public class DBconnection {
             String username = System.getenv("MYSQLUSER");
             String password = System.getenv("MYSQLPASSWORD");
 
-            // If running locally (Eclipse)
-            if(host == null || host.isEmpty()){
-                host = "localhost";
-                port = "3306";
-                database = "healthdb";
-                username = "root";
-                password = "abW_67@jagriti";
-            }
+       
 
             String url = "jdbc:mysql://" + host + ":" + port + "/" + database +
                     "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
