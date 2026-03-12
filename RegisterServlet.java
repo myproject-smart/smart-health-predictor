@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
 
-                response.sendRedirect("home.jsp");
+                response.sendRedirect(request.getContextPath() + "/home.jsp");
             }
             else{
                 response.sendRedirect("register.html");

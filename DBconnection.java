@@ -18,12 +18,12 @@ public class DBconnection {
             String password = System.getenv("MYSQLPASSWORD");
 
             // If running locally (Eclipse)
-            if(host == null){
+            if(host == null || host.isEmpty()){
                 host = "localhost";
                 port = "3306";
-                database = "healthdb";   // change to your local database name
+                database = "healthdb";
                 username = "root";
-                password = "abW_67@jagriti";         // your local mysql password
+                password = "abW_67@jagriti";
             }
 
             String url = "jdbc:mysql://" + host + ":" + port + "/" + database +
